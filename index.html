@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/mask.svg">
+    <title>Mask MAP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+    <link rel="stylesheet" href="css/L.Icon.Pulse.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <link href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"></link> 
+    <link href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"></link> 
+</head>
+<body>
+    <div class="container-fluid" style="padding: 0">
+        <header class="row bg-primary text-white no-gutters justify-content-between d-none d-md-flex">
+            <div class="col-3 p-3">
+                <p class="h5" style="line-height: 22px;"><i class="far fa-calendar"></i><span class="js-year"></span>/</p>
+                <p style="font-size: 36px; line-height: 50px;">
+                    <span class="js-month">02</span>/<span class="js-date"></span>(<span class="js-day"></span>)
+                </p>
+                <small class="h7">
+                    如今日購買，下次最快可購買日為<span class="js-nextMonth"></span>/<span class="js-nextDate"></span>(<span class="js-nextDay"></span>)
+                </small>
+            </div>
+            <div class="col-3 align-self-center position-relative">
+                <p class="text-right" style="font-size: 10px;"><i class="fas fa-cog"></i> 請設定身分證尾碼</p>
+                <a href="#" class="idCardSet" id="js-idCardSet">請設定你的身分證尾碼</a>
+                <div class="popBox d-none" id="js-popBox">
+                    <p>請輸入你的身分證尾碼</p>
+                    <input type="number" id="js-idNumBlock" min="0" max="9" style="width:195px">
+                    <input type="button" class="btn-primary btn-save" id="js-idSaveBtn" value="儲存">
+                    <span id="js-note" class="note"></span>
+                </div>
+                <p class="text-center" id="js-buyNews"></p>
+            </div>
+            <div class="col-3 bg-secondary">
+                <div class="p-2" style="line-height: 20px;">
+
+                </div>
+                <div class="text-center p-2 bg-info">
+                    
+                </div>
+            </div>
+        </header>
+        <div class="row no-gutters">
+            <div class="col-md-3 col-8 searchBar js-searchBar">
+                <div class="search-burgerBtn d-md-none" id="js-search-burgerBtn">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <div class="text-dark" style="padding: 20px 36px;">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">搜尋位置</label>
+                        <input type="text"" class="form-control" id="js-searchBlock" placeholder="請輸入所在縣市、鄉鎮">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">口罩類別</label>
+                        <select class="form-control text-dark" id="js-maskTypeOpt">
+                            <option>全部</option>
+                            <option>成人口罩</option>
+                            <option>兒童口罩</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary btn-search" id="js-searchBtn">搜尋</button>
+                </div>
+                <hr class="m-0">
+                <div class="overflow-auto infoList">
+                    <h5 class="h6 text-dark" id="js-pharmacyNum"></h5>
+                    <div id="js-maskInfoList">
+                    <!-- 藥局資訊 -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-9 position-relative">
+                <div class="map-burgerBtn d-md-none" id="js-map-burgerBtn">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <div id="map" class="map"></div>
+                <a class="goBackPosition js-goBackPosition">
+                    <i class="fas fa-crosshairs" style="color:rgb(82, 81, 81)"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="js/L.Icon.Pulse.js"></script>
+    <script src="js/map.js"></script>
+</body>
+
+</html>
